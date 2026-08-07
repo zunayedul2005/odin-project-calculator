@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             previousScreen.textContent ="";
             resultDisplayed = false;
             waitingForSecondValue = false;
+            currentScreen.classList.remove("error");  // FIX (minor): clear the error class when resetting after a result, so the next number typed shows normally.
         }
     
     }
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if(typeof answer !== "number") {
                 currentScreen.textContent = answer;
+                currentScreen.classList.add("error");
                 // FIX (minor): previousScreen was left showing the stale
                 // "firstValue operator" from before the error. Now it
                 // shows the full equation that actually failed, matching
@@ -129,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
             secondValue ="";
             operator ="";
             currentScreen.textContent ="0";
+            currentScreen.classList.remove("error");  // FIX (minor): clear the error class when clearing, so the next number typed shows normally.
             previousScreen.textContent ="";
             waitingForSecondValue = false;
             resultDisplayed = false;
@@ -145,6 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if(typeof answer !== "number") {
                 currentScreen.textContent = answer;
+                currentScreen.classList.add("error");
                 previousScreen.textContent = firstValue+" "+ operator+" "+ secondValue+" =";
                 firstValue = "";
                 secondValue = "";
@@ -192,7 +196,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
         })
 
+
+
+         //keyboard support
+        document.addEventListener("keydown", (event) => {
+            let key = event.key;
+
+            if(key>="0" && key<="9") {
+              key =  [...numbers].find(button => button.textContent === key);
+              key?.click();
+            }
+
+            else if(["+", "-", "*", "/"].includes(key)) {
+                key =  [...operators].find(button => button.textContent === key);
+                key?.click();
+            }
+
+            else if(key === "Enter" || key === "=") {
+                equal.click();
+            }
+
+            else if(key === ".") {
+                decimal.click();
+            }
+
+            else if( key ==="Backspace" || key ==="Delete") {
+                deleteButton.click();
+            }
+
+            else if(key === "Escape") {
+                clearButton.click();
+            }
+
     })
+
+
+
+})
 
 
     function operate(num1, num2, operator) {
