@@ -1,0 +1,104 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.btn{
+    height: 65px;
+    width :65px;
+    margin: 10px;
+    font-size: 40px;
+    border: 2px solid black;
+}
+.btn.delete{
+    border: 2px solid rgb(185, 67, 67);
+    border-radius: 15px;
+}
+
+.btn.delete:hover{
+    background-color: rgb(185, 67, 67);
+}
+
+.row-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display{
+    width: 155px;
+    height: 80px;
+    margin: 15px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 118, 118);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.previous{
+    font-size: 15px; 
+    margin: 9px; 
+}
+
+.current{
+    font-size: 20px;
+    margin: 9px;
+}
+
+.btn.number{
+    border: 2px solid  rgb(211,226,176);
+    border-radius: 15px;
+
+}
+
+.btn.number:hover{
+    background-color: rgb(211,226,176);
+}
+
+.btn.operator{
+    border: 2px solid lightblue;
+    border-radius: 15px;
+}
+
+.btn.operator:hover{
+    background-color: lightblue;
+}
+
+.btn.equals{
+    border: 2px solid hotpink;
+    border-radius: 15px;
+}
+.btn.equals:hover{
+    background-color: hotpink;
+}
+
+.btn.clear{
+    border: 2px solid rgb(185, 67, 67);
+    border-radius: 15px;
+}
+
+.btn.clear:hover{
+    background-color: rgb(185, 67, 67);
+}
+
+
+.btn.decimal{
+    border: 2px solid gold;
+    border-radius: 15px;
+}
+
+.btn.decimal:hover{
+    background-color: gold;
+}
+
+.current.error{
+    font-size: 12px;
+    
+}
